@@ -97,7 +97,7 @@ typescript, node.js, paypal, paypal-orders-api, paypal-webhooks, model-context-p
 No account is needed for mock mode:
 
 ```sh
-git clone [GitHub repository URL] && cd plainfeed-agent-pay
+git clone https://github.com/plainfeed/agent-pay && cd agent-pay
 npm install
 npm test
 npm run demo
