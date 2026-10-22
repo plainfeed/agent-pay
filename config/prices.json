@@ -1,0 +1,10 @@
+{
+  "note": "What is for sale and what each call costs, in US dollars. Calls not listed here are not for sale.",
+  "currency": "USD",
+  "products": [
+    { "id": "sources", "path": "/v1/sources", "price": "0.00", "label": "Sources and licences", "describe": "Sources and licences", "params": [] },
+    { "id": "cities.search", "path": "/v1/cities", "price": "0.01", "label": "Search cities", "describe": "City search: {q} {country}", "params": ["q", "country", "limit"] },
+    { "id": "cities.get", "path": "/v1/cities/{id}", "price": "0.02", "label": "One city", "describe": "City costs: {id}", "params": ["date"] },
+    { "id": "cities.compare", "path": "/v1/compare", "price": "0.05", "label": "Compare two cities", "describe": "Compare {a} and {b}", "params": ["a", "b", "date"], "required": ["a", "b"] }
+  ]
+}

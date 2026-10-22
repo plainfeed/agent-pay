@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Plainfeed Agent Pay</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=B612+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f5f1;--panel:#ffffff;--ink:#1b1d1f;--muted:#5d6166;--line:#dcdad3;--accent:#0b6b55;--chip:#ebe9e2;
+--sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--mono:"B612 Mono",ui-monospace,Menlo,Consolas,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141516;--panel:#1d1f21;--ink:#ecebe6;--muted:#a3a7ab;--line:#33363a;--accent:#3fbf98;--chip:#2a2d30}}
+:root[data-theme="dark"]{--bg:#141516;--panel:#1d1f21;--ink:#ecebe6;--muted:#a3a7ab;--line:#33363a;--accent:#3fbf98;--chip:#2a2d30}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 var(--sans)}
+main{max-width:760px;margin:0 auto;padding:32px 16px 48px}
+h1{font-size:28px;margin:0 0 6px}h2{font-size:18px;margin:28px 0 8px}
+p{margin:8px 0}.muted{color:var(--muted)}
+.chip{display:inline-block;background:var(--chip);border-radius:999px;padding:2px 10px;font-size:13px;color:var(--muted)}
+ol{padding-left:22px}li{margin:6px 0}
+pre{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px;overflow-x:auto;font:13px/1.5 var(--mono)}
+code{font-family:var(--mono);font-size:14px}
+nav a{margin-right:16px}a{color:var(--accent)}
+</style>
+</head>
+<body>
+<main>
+<h1>Plainfeed Agent Pay</h1>
+<p><span class="chip" id="mode">checking</span></p>
+<p>AI agents can buy data here one call at a time. They pay with PayPal, and their person approves every payment.</p>
+<nav><a href="/ledger">Ledger</a><a href="/v1/prices">Prices</a><a href="/health">Health</a></nav>
+
+<h2>How a purchase works</h2>
+<ol>
+  <li>The agent asks for data. Paid calls answer <code>402 Payment Required</code> with a price quote.</li>
+  <li>The agent puts all the calls it needs into one quote. The gateway checks the agent's spending limits.</li>
+  <li>The gateway creates a PayPal order. The agent shows its person the link.</li>
+  <li>The person approves in PayPal. The gateway captures the payment.</li>
+  <li>The agent gets the data and a signed receipt. The seller's ledger gets one plain-English line.</li>
+</ol>
+
+<h2>Connect Claude</h2>
+<p class="muted">Claude Code, with this server running:</p>
+<pre>claude mcp add plainfeed-pay -e GATEWAY_URL=http://localhost:8787 -e AGENT_KEY=demo-agent-key-not-secret -- node /path/to/plainfeed-agent-pay/src/mcp/stdio.ts</pre>
+<p class="muted">Then ask: "Compare the cost of a travel day in Lisbon and Madrid. You can spend up to 20 cents."</p>
+</main>
+<script>
+fetch('/health').then((r) => r.json()).then((h) => {
+  document.getElementById('mode').textContent = (h.paypal === 'mock' ? 'Mock PayPal, no account needed' : 'PayPal sandbox') + ' · ' + (h.data_source === 'sample' ? 'sample data' : 'live feed');
+}).catch(() => {});
+</script>
+</body>
+</html>

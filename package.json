@@ -1,0 +1,28 @@
+{
+  "name": "plainfeed-agent-pay",
+  "version": "0.1.0",
+  "description": "PayPal pay-per-call for AI agents: HTTP 402 quotes, PayPal Orders v2 checkout, per-agent spending caps, signed receipts and a plain-English, tamper-evident ledger.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning src/api/node-server.ts",
+    "demo": "node --disable-warning=ExperimentalWarning src/demo/run.ts",
+    "demo:manual": "node --disable-warning=ExperimentalWarning src/demo/run.ts --manual",
+    "demo:overspend": "node --disable-warning=ExperimentalWarning scripts/overspend.ts",
+    "mcp": "node --disable-warning=ExperimentalWarning src/mcp/stdio.ts",
+    "agent:new": "node --disable-warning=ExperimentalWarning scripts/new-agent.ts",
+    "ledger": "node --disable-warning=ExperimentalWarning scripts/ledger.ts",
+    "ledger:check": "node --disable-warning=ExperimentalWarning scripts/ledger.ts --check",
+    "test": "node --disable-warning=ExperimentalWarning --test --test-reporter=spec \"test/**/*.test.ts\"",
+    "typecheck": "tsc --noEmit -p ."
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/sdk": "1.32.1",
+    "@types/node": "25.9.9",
+    "typescript": "7.0.2"
+  },
+  "author": "Plainfeed",
+  "license": "MIT"
+}

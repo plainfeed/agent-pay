@@ -1,0 +1,7 @@
+{
+  "note": "Demo agents for mock mode and local tests. Their keys are public on purpose (demo-agent-key-not-secret, tight-agent-key-not-secret). For anything else, create agents with npm run agent:new, which writes config/agents.local.json (not committed), and delete these two.",
+  "agents": [
+    { "id": "demo-agent", "name": "Trip planner (demo)", "key_sha256": "a30ca36144e682138dbb03f3de03057bd7afb37d2b11a74c6c6d2a1390f2eed7", "order_cap": "0.25", "daily_cap": "1.00" },
+    { "id": "tight-agent", "name": "Budget bot (demo)", "key_sha256": "db4533803eb9a4a1dfb2289aff3045809adccc15b70962d8dce2637d43947ded", "order_cap": "0.10", "daily_cap": "0.15" }
+  ]
+}

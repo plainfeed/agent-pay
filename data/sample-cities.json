@@ -1,0 +1,21 @@
+{
+  "note": "Sample numbers made up for the demo. They are not official rates. Set UPSTREAM_URL to sell a live Plainfeed feed instead.",
+  "currency": "USD",
+  "fields": {
+    "lodging": "lodging per night, USD",
+    "meals_incidentals": "meals and small expenses per day, USD",
+    "per_diem": "lodging + meals_incidentals"
+  },
+  "cities": [
+    { "id": "pt-lisbon", "name": "Lisbon", "country": "Portugal", "lodging": 210, "meals_incidentals": 95 },
+    { "id": "es-madrid", "name": "Madrid", "country": "Spain", "lodging": 230, "meals_incidentals": 100 },
+    { "id": "fr-paris", "name": "Paris", "country": "France", "lodging": 340, "meals_incidentals": 130 },
+    { "id": "de-berlin", "name": "Berlin", "country": "Germany", "lodging": 200, "meals_incidentals": 90 },
+    { "id": "gb-london", "name": "London", "country": "United Kingdom", "lodging": 360, "meals_incidentals": 140 },
+    { "id": "jp-tokyo", "name": "Tokyo", "country": "Japan", "lodging": 260, "meals_incidentals": 110 },
+    { "id": "tw-taipei", "name": "Taipei", "country": "Taiwan", "lodging": 190, "meals_incidentals": 85 },
+    { "id": "mx-mexico-city", "name": "Mexico City", "country": "Mexico", "lodging": 180, "meals_incidentals": 80 },
+    { "id": "ke-nairobi", "name": "Nairobi", "country": "Kenya", "lodging": 170, "meals_incidentals": 75 },
+    { "id": "us-ny-new-york", "name": "New York", "country": "United States", "lodging": 320, "meals_incidentals": 90 }
+  ]
+}
