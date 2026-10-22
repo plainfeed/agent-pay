@@ -116,6 +116,8 @@ Rules it follows: a `PayPal-Request-Id` on every Orders and webhook POST, derive
 
 Why not let the agent call PayPal itself? The PayPal Agent Toolkit and MCP server give an AI the merchant's own PayPal powers. Here the merchant is the gateway, and the buyer's agent should never hold the merchant's keys or the buyer's payment details. So the gateway talks to PayPal, and the agent only gets a link for its person.
 
+Where PayPal's own MCP server does fit is the seller's side. Optional: connect PayPal's sandbox MCP server to Claude next to this project (the PayPal AI Toolkit plugin sets it up: `/plugin install paypal@claude-plugins-official`, then a sandbox access token as described in https://github.com/paypal/AI-Toolkit). Then ask Claude to compare `npm run ledger` with PayPal's own records of the same orders. The ledger's PayPal order and capture ids make that a direct match. This needs your sandbox token, so it is not part of the tests.
+
 ## Spending limits
 
 Each agent has a key (`x-agent-key`) and two limits, set by the seller in `config/agents.json` or `config/agents.local.json`:
